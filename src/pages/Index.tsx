@@ -36,28 +36,37 @@ const Index = () => {
   } = useSignalTracker();
 
   return (
-    <div className="min-h-screen bg-background flex flex-col select-none" style={{ userSelect: 'none', WebkitUserSelect: 'none' }}>
-      <SignalInput
-        signalsText={signalsText}
-        onSignalsTextChange={setSignalsText}
-        onUndo={handleUndo}
-        onRedo={handleRedo}
-        canUndo={canUndo}
-        canRedo={canRedo}
-        onClear={handleClear}
-      />
+    <div className="bg-background flex flex-col select-none overflow-hidden" style={{ 
+      userSelect: 'none', 
+      WebkitUserSelect: 'none',
+      height: '100dvh', // Dynamic viewport height for mobile
+      paddingBottom: 'env(safe-area-inset-bottom)' // Safe area for mobile
+    }}>
+      <div className="flex-1 overflow-hidden">
+        <SignalInput
+          signalsText={signalsText}
+          onSignalsTextChange={setSignalsText}
+          onUndo={handleUndo}
+          onRedo={handleRedo}
+          canUndo={canUndo}
+          canRedo={canRedo}
+          onClear={handleClear}
+        />
+      </div>
       
-      <ControlPanel
-        signalsText={signalsText}
-        saveButtonPressed={saveButtonPressed}
-        saveTsButtonPressed={saveTsButtonPressed}
-        onSaveSignals={handleSaveSignals}
-        onSaveTsMouseDown={handleSaveTsMouseDown}
-        onSaveTsMouseUp={handleSaveTsMouseUp}
-        onSaveTsMouseLeave={handleSaveTsMouseLeave}
-        onRingOff={handleRingOff}
-        onScreenOff={handleScreenOff}
-      />
+      <div className="flex-shrink-0 pb-2">
+        <ControlPanel
+          signalsText={signalsText}
+          saveButtonPressed={saveButtonPressed}
+          saveTsButtonPressed={saveTsButtonPressed}
+          onSaveSignals={handleSaveSignals}
+          onSaveTsMouseDown={handleSaveTsMouseDown}
+          onSaveTsMouseUp={handleSaveTsMouseUp}
+          onSaveTsMouseLeave={handleSaveTsMouseLeave}
+          onRingOff={handleRingOff}
+          onScreenOff={handleScreenOff}
+        />
+      </div>
 
       <SaveTsDialog
         open={showSaveTsDialog}
