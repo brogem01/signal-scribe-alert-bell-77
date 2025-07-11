@@ -36,13 +36,13 @@ const Index = () => {
   } = useSignalTracker();
 
   return (
-    <div className="bg-background flex flex-col select-none overflow-hidden" style={{ 
+    <div className="bg-background flex flex-col select-none" style={{ 
       userSelect: 'none', 
       WebkitUserSelect: 'none',
       height: '100dvh', // Dynamic viewport height for mobile
       paddingBottom: 'env(safe-area-inset-bottom)' // Safe area for mobile
     }}>
-      <div className="flex-1 overflow-hidden">
+      <div className="flex-1 min-h-0">
         <SignalInput
           signalsText={signalsText}
           onSignalsTextChange={setSignalsText}
@@ -54,7 +54,7 @@ const Index = () => {
         />
       </div>
       
-      <div className="flex-shrink-0 pb-2">
+      <div className="flex-shrink-0 pb-4 pt-2">
         <ControlPanel
           signalsText={signalsText}
           saveButtonPressed={saveButtonPressed}
