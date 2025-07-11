@@ -97,7 +97,24 @@
     @apply border-border;
   }
 
+  html {
+    height: 100%;
+    overflow: hidden; /* Prevent global scrolling */
+    overscroll-behavior: none; /* Prevent overscroll on Android */
+  }
+
   body {
     @apply bg-background text-foreground;
+    height: 100%;
+    overflow: hidden; /* Prevent body scrolling */
+    overscroll-behavior: none; /* Prevent overscroll on Android */
+    position: fixed; /* Lock body position */
+    width: 100%;
+  }
+
+  #root {
+    height: 100%;
+    overflow: hidden;
+    overscroll-behavior: none;
   }
 }

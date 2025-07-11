@@ -42,6 +42,7 @@ const Index = () => {
       height: '100dvh', // Dynamic viewport height for mobile
       maxHeight: '100dvh', // Prevent overflow
       overflow: 'hidden', // Prevent any scrolling beyond viewport
+      overscrollBehavior: 'none', // Prevent overscroll on Android
       paddingBottom: 'env(safe-area-inset-bottom)' // Safe area for mobile
     }}>
       <div className="flex-1 min-h-0">
